@@ -4,17 +4,17 @@ body .bst-echo *{
     background-color: #ffffff;
 }
 
-body.pop .bst-echo-main .bst-echo-header .bst-echo-header-info *[
+body.pop .bst-echo-main .bst-echo-header .bst-echo-header-info {
     border-radius: 0em 0em 0em 0em;
     padding: 1em;
     background-color: #ffffff; !important
 }
 
-element.style {
+body .element.style {
     background-color: #ffffff; !important
 }
 
-body .bst-echo-main .bst-echo-header .bst-echo-header-info *{
+body .bst-echo-main .bst-echo-header .bst-echo-header-info {
     background-color: #ffffff;
 }
 
