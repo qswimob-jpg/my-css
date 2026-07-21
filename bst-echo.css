@@ -9,14 +9,10 @@ div {
   background-color: #ffffff;
 }
 
-.bst-echo-header {
-  background-color: #ffffff !important;
-}
 
-.bst-echo-header-action{
-  background-color: #ffffff !important;
-}
-
-.bst-echo-body{
+.bst-echo-header,
+.bst-echo-header-info,
+.bst-echo-header-title,
+.bst-echo-header-description {
   background-color: #ffffff !important;
 }
