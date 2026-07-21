@@ -10,13 +10,15 @@ body.pop .bst-echo-main .bst-echo-header .bst-echo-header-info *[
     background-color: #ffffff; !important
 }
 
-
+element.style {
+    background-color: #ffffff; !important
+}
 
 body .bst-echo-main .bst-echo-header .bst-echo-header-info *{
     background-color: #ffffff;
 }
 
-body.win {
+body.win.pop {
 	background-color: #ffffff !important;
 }
 
