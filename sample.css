@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* --- 1. ページ全体の設定 --- */
+body {
+    background-color: #f5f7fa !important; /* 背景色を変更 */
+    font-family: "Helvetica Neue", Arial, sans-serif !important; /* フォントを変更 */
+}
+
+/* --- 2. ヘッダーエリアの装飾 --- */
+/* タイトル文字 */
+.header-title, h1 {
+    color: #1e3a8a !important; /* 文字色（紺色） */
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+/* 説明文 */
+.header-description {
+    color: #4b5563 !important;
+    font-size: 14px !important;
+}
+
+/* --- 3. テーブル（一覧表）の装飾 --- */
+/* 表全体 */
+table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important; /* うっすら影をつける */
+}
+
+/* 表の見出し行（ヘッダー） */
+th {
+    background-color: #0284c7 !important; /* ヘッダーの背景色 */
+    color: #ffffff !important;           /* ヘッダーの文字色（白） */
+    padding: 12px !important;
+    text-align: center !important;
+}
+
+/* 表のデータセル */
+td {
+    padding: 10px !important;
+    border-bottom: 1px solid #e5e7eb !important; /* 行間の区切り線 */
+}
+
+/* 行のホバー（マウスを乗せたときの変化） */
+tr:hover {
+    background-color: #f0f9ff !important;
+}
+
+/* --- 4. リンク（ボタンやURL）の装飾 --- */
+a {
+    color: #2563eb !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
