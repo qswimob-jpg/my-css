@@ -10,9 +10,10 @@ div {
 }
 
 
-.bst-echo .bst-echo-main .bst-echo-header,
-.bst-echo .bst-echo-main .bst-echo-header-info,
-.bst-echo .bst-echo-main .bst-echo-header-title,
-.bst-echo .bst-echo-main .bst-echo-header-description {
+.bst-echo,
+.bst-echo-main,
+.bst-echo-main-list,
+.bst-echo-body,
+.bst-echo-body-main {
   background-color: #ffffff !important;
 }
