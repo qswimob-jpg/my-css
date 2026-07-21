@@ -1,35 +1,6 @@
-:root {
-    --echo-bg-color: rgb(215 107 107);
-}
 
 body .bst-echo *{
     color: rgba(88,54,105,1) !important;
     font-size: 15px !important;
     background-color: #ffffff !important;
-}
-
-body.pop .bst-echo-main .bst-echo-header {
-    background-color: #ffffff !important;
-}
-
-body.pop .bst-echo-header-info {
-    border-radius: 0em 0em 0em 0em;
-    padding: 1em 1em 1em 1em;
-    background-color: #ffffff !important;
-}
-
-body .element.style {
-    background-color: #ffffff !important;
-}
-
-body .bst-echo-main .bst-echo-header .bst-echo-header-info {
-    background-color: #ffffff !important;
-}
-
-body.win.pop {
-	background-color: #ffffff !important;
-}
-
-html {
-	background-color: #ffffff !important;
 }
