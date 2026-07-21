@@ -19,7 +19,7 @@ body .element.style {
 }
 
 body .bst-echo-main .bst-echo-header .bst-echo-header-info {
-    background-color: #ffffff;
+    background-color: #ffffff; !important
 }
 
 body.win.pop {
