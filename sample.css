@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* --- 1. ページ全体の設定 --- */
-html win.body {
+body.win {
     background-color: #f5f7fa !important; /* 背景色を変更 */
     font-family: "Helvetica Neue", Arial, sans-serif !important; /* フォントを変更 */
 }
