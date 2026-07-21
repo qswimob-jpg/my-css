@@ -1,8 +1,8 @@
 
 body .bst-echo *{
-    color: rgba(88,54,105,1);
-    font-size: 15px;
-    background-color: #ffffff;
+    color: rgba(88,54,105,1) !important;
+    font-size: 15px !important;
+    background-color: #ffffff !important;
 }
 
 body.pop .bst-echo-main .bst-echo-header {
