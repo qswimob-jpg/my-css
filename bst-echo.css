@@ -5,5 +5,9 @@ body .bst-echo *{
 }
 
 body.win *{
-	background-color: #ffffff;
+	background-color: #ffffff !important;
+}
+
+html *{
+	background-color: #ffffff !important;
 }
