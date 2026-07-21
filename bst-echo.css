@@ -8,3 +8,15 @@ body {
 div {
   background-color: #ffffff;
 }
+
+.bst-echo-header {
+  background-color: #ffffff !important;
+}
+
+.bst-echo-header-action{
+  background-color: #ffffff !important;
+}
+
+.bst-echo-body{
+  background-color: #ffffff !important;
+}
