@@ -1,8 +1,6 @@
 :root {
     --echo-bg-color: rgb(215 107 107);
 }
-}
-
 
 body .bst-echo *{
     color: rgba(88,54,105,1) !important;
