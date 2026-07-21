@@ -9,11 +9,6 @@ div {
   background-color: #ffffff;
 }
 
-
-.bst-echo,
-.bst-echo-main,
-.bst-echo-main-list,
-.bst-echo-body,
-.bst-echo-body-main {
+body.pop :is(.kb-echo,.bst-echo) :is(.kb-echo-main,.bst-echo-main) :is(.kb-echo-body,.kb-echo-header,.kb-echo-mask-border,.bst-echo-body,.bst-echo-header,.bst-echo-mask-border) {
   background-color: #ffffff !important;
 }
