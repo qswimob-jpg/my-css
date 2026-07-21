@@ -4,10 +4,10 @@ body .bst-echo *{
     background-color: #ffffff;
 }
 
-body.win *{
+body.win {
 	background-color: #ffffff !important;
 }
 
-html *{
+html {
 	background-color: #ffffff !important;
 }
