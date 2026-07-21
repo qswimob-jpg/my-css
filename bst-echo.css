@@ -1,0 +1,10 @@
+/* ページ全体・主要エリアを白で統一 */
+html,
+body {
+  background-color: #ffffff !important;
+}
+
+/* 主要なコンテナ要素も念のため白に */
+div {
+  background-color: #ffffff;
+}
