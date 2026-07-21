@@ -1,6 +1,3 @@
-html {
-    --echo-bg-color: #ffffff; /* テーマの背景色自体を白などに変更 */
-}
 
 body .bst-echo *{
     color: rgba(38,50,56,1);
@@ -9,27 +6,27 @@ body .bst-echo *{
 }
 
 body.pop .bst-echo-main .bst-echo-header {
-    background-color: #ffffff; !important
+    background-color: #ffffff !important;
 }
 
 body.pop .bst-echo-header-info {
     border-radius: 0em 0em 0em 0em;
     padding: 1em 1em 1em 1em;
-    background-color: #ffffff; !important
+    background-color: #ffffff !important;
 }
 
 body .element.style {
-    background-color: #ffffff; !important
+    background-color: #ffffff !important;
 }
 
 body .bst-echo-main .bst-echo-header .bst-echo-header-info {
-    background-color: #ffffff; !important
+    background-color: #ffffff !important;
 }
 
 body.win.pop {
-	background-color: #ffffff; !important;
+	background-color: #ffffff !important;
 }
 
 html {
-	background-color: #ffffff; !important;
+	background-color: #ffffff !important;
 }
