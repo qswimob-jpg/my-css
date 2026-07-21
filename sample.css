@@ -1,100 +1,34 @@
-@charset "UTF-8";
-
-/* ==========================================
-   全体・レイアウトの基本設定
-   ========================================== */
+/* ページ全体のフォントや背景色 */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #333333;
-  line-height: 1.6;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif !important;
+    background-color: #f5f5f5 !important;
 }
 
-/* 上部テキスト・案内エリア */
-body > p, .header-description {
-  background: #ffffff;
-  padding: 16px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
+/* ヘッダータイトル・説明文の装飾 */
+.header-title {
+    color: #333333 !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
 }
 
-/* パスワードや強調文字 */
-span.pw-highlight, strong {
-  color: #d9534f;
-  font-weight: bold;
-}
-
-/* ==========================================
-   テーブル（一覧表）の装飾
-   ========================================== */
+/* テーブル・一覧表示のカスタマイズ */
 table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  margin-top: 15px;
+    border-collapse: collapse !important;
+    width: 100% !important;
 }
 
-/* ヘッダー行 */
 th {
-  background-color: #0056b3; /* 水泳部らしい清潔感のあるブルー */
-  color: #ffffff;
-  font-weight: 600;
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 2px solid #004085;
+    background-color: #4A90E2 !important;
+    color: #ffffff !important;
 }
 
-/* データセル */
 td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #e9ecef;
-  vertical-align: middle;
+    border: 1px solid #dddddd !important;
+    padding: 8px !important;
 }
 
-/* 行のホバー＆ゼブラパターン */
-tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-tbody tr:hover {
-  background-color: #e9ecef;
-  transition: background-color 0.2s ease;
-}
-
-/* ==========================================
-   リンク・ボタン風装飾
-   ========================================== */
-/* テーブル内のアルバムリンク */
-td a {
-  display: inline-block;
-  padding: 6px 12px;
-  background-color: #e7f1ff;
-  color: #0056b3;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-td a:hover {
-  background-color: #0056b3;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* メールアドレス・一般リンク */
-a {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #003d82;
+/* カレンダー表示時のセル調整 */
+.calendar-cell {
+    border: 1px solid #e0e0e0 !important;
+    background-color: #ffffff !important;
 }
