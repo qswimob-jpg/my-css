@@ -3,3 +3,7 @@ body .bst-echo *{
     font-size: 15px;
     background-color: #ffffff;
 }
+
+body.win *{
+	background-color: #ffffff;
+}
