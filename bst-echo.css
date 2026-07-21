@@ -1,3 +1,7 @@
+:root {
+    --echo-bg-color: #ffffff; /* テーマの背景色自体を白などに変更 */
+}
+
 body .bst-echo *{
     color: rgba(38,50,56,1);
     font-size: 15px;
