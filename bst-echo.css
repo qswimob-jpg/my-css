@@ -1,14 +1,3 @@
-/* ページ全体・主要エリアを白で統一 */
-html,
-body {
-  background-color: #ffffff !important;
-}
-
-/* 主要なコンテナ要素も念のため白に */
-div {
-  background-color: #ffffff;
-}
-
-body.pop :is(.kb-echo,.bst-echo) :is(.kb-echo-main,.bst-echo-main) :is(.kb-echo-body,.kb-echo-header,.kb-echo-mask-border,.bst-echo-body,.bst-echo-header,.bst-echo-mask-border) {
+body.pop.pop :is(.kb-echo,.bst-echo) :is(.kb-echo-main,.bst-echo-main) :is(.kb-echo-body,.kb-echo-header,.kb-echo-mask-border,.bst-echo-body,.bst-echo-header,.bst-echo-mask-border) {
   background-color: #ffffff !important;
 }
