@@ -1274,7 +1274,7 @@ body .bst-echo .bst-echo-main .bst-echo-header .bst-echo-header-action .bst-echo
 	display:inline-block;
 	padding:0.25em;
 	font-weight: bold;
-	color: var(--color-highlite);
+	color:var(--color-highlight);
 }
 body .bst-echo .bst-echo-main .bst-echo-header .bst-echo-header-action .bst-echo-header-filter .bst-echo-header-filter-cases{
 	display:inline-block;
