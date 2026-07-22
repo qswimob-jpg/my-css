@@ -1384,3 +1384,15 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask{
 	height:calc(100% - 1.5em);
 	z-index:2;
 }
+
+html *{
+	box-sizing:border-box;
+	font-family:system-ui,sans-serif;
+	font-size:12px;
+	line-height:1.5em;
+	margin:0;
+	padding-left:20px !important;
+	position:relative;
+	vertical-align:top;
+	-webkit-overflow-scrolling:touch;
+	-webkit-text-size-adjust:100%;
