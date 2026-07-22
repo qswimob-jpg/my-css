@@ -45,7 +45,7 @@
 
 /* 修正: リンク文字色を鮮明な青色に統一 */
 a {
-	color: #2563eb !important;
+	color: #2563eb !important!;
 	text-decoration: underline;
 }
 
@@ -709,7 +709,7 @@ a {
 .bst-view .bst-view-head .bst-view-head-cell{
 	background-color: #1d4ed8 !important;
 	color: #ffffff !important;
-	padding: 0.25em 0;
+	padding: 0em 0em;
 }
 .bst-view .bst-view-head .bst-view-head-cell * {
 	color: #ffffff !important;
