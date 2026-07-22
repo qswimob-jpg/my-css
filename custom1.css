@@ -1395,7 +1395,7 @@ html *{
 	font-size:12px;
 	line-height:1.5em;
 	margin:0;
-	padding:0.5em !important;
+	padding:0em !important;
 	position:relative;
 	vertical-align:top;
 	-webkit-overflow-scrolling:touch;
