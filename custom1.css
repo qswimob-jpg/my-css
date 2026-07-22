@@ -273,6 +273,7 @@ a {
 	white-space:normal;
 	width:100%;
 	word-break:break-all;
+	border:1px solid #000000;
 }
 .bst-field .bst-field-value .bst-guide .bst-guide-item{
 	display:block;
