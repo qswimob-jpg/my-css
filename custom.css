@@ -1,60 +1,155 @@
 @charset "utf-8";
 /*
 * FileName "ui.css"
-* Customized for Modern Light Style
+* Version: 1.1.0 - Modern & Clean Custom Edition
+* Copyright (c) 2023 Pandafirm LLC
+* Distributed under the terms of the GNU Lesser General Public License.
+* https://opensource.org/licenses/LGPL-2.1
 */
+
 :root{
-	--emphasis-color:#2563eb;
-	--bg-color:#ffffff;
-	--fr-color:#1f2937;
-	--color-highlight:#ef4444;
-	--placeholder-color:#9ca3af;
-	--border-color:#e5e7eb;
-	--field-bg-color:#ffffff;
-	--field-border-color:#d1d5db;
-	--field-focus-color:#2563eb;
-	--main-bg-color:#f9fafb;
-	--main-fr-color:#1f2937;
-	--main-highlight-color:#ffffff;
-	--main-shadow-color:#e5e7eb;
-	--injector-emphasis-color:#2563eb;
-	--injector-bg-color:#f3f4f6;
-	--injector-fr-color:#1f2937;
-	--injector-placeholder-color:#9ca3af;
-	--injector-field-bg-color:#ffffff;
-	--injector-field-border-color:#d1d5db;
-	--injector-field-focus-color:#2563eb;
-	--echo-bg-color:#f3f4f6;
-	--echo-fr-color:#1f2937;
-	--echo-placeholder-color:#9ca3af;
+	/* --- カラーパレット：明るく現代的な配色 --- */
+	--emphasis-color: #2563eb;          /* メインアクセント（鮮やかなブルー） */
+	--bg-color: #ffffff;                /* 基本背景（完全な白） */
+	--fr-color: #1e293b;                /* 基本文字色（現代的なダークスレート） */
+	--color-highlight: #ef4444;         /* ハイライト・強調 */
+	--placeholder-color: #94a3b8;      /* プレースホルダー */
+	--border-color: #e2e8f0;           /* 標準枠線 */
+	--field-bg-color: #ffffff;         /* 入力フィールド背景 */
+	--field-border-color: #cbd5e1;    /* 入力フィールド枠線 */
+	--field-focus-color: #3b82f6;     /* フォーカス時カラー */
+	--main-bg-color: #ffffff;          /* メイン背景 */
+	--main-fr-color: #1e293b;
+	--main-highlight-color: #ffffff;
+	--main-shadow-color: #e2e8f0;
+	--injector-emphasis-color: #3b82f6;
+	--injector-bg-color: #ffffff;
+	--injector-fr-color: #1e293b;
+	--injector-placeholder-color: #94a3b8;
+	--injector-field-bg-color: #ffffff;
+	--injector-field-border-color: #cbd5e1;
+	--injector-field-focus-color: #3b82f6;
+	--echo-bg-color: #f8fafc;
+	--echo-fr-color: #1e293b;
+	--echo-placeholder-color: #94a3b8;
+
+	/* --- テーブルヘッダー用カラー --- */
+	--th-bg-color: #1e40af;            /* テーブル見出し背景（深みのあるブルー） */
+	--th-text-color: #ffffff;          /* テーブル見出し文字色 */
 }
 
-/* --------------------------------------------------
-   Buttons
--------------------------------------------------- */
+/* 共通フォント設定 */
+body, .bst-view, input, select, textarea, button {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif !important;
+}
+
+/* ==========================================================================
+   1. パーツのエッジ丸め解除（全て border-radius: 0）
+   ========================================================================== */
+*,
+.bst-action-button,
+.bst-field .bst-field-alert span,
+.bst-field .bst-field-value :is(input[type=checkbox],input[type=radio])+span:after,
+.bst-field .bst-field-value.bst-force-backcolor,
+.bst-field .bst-field-value.bst-force-backcolor .bst-guide {
+	border-radius: 0 !important;
+}
+
+/* ==========================================================================
+   2. ボタン・入力フィールド（モダン＆クリーン）
+   ========================================================================== */
 .bst-action-button{
 	background-color:#ffffff;
 	border:1px solid var(--border-color);
-	border-radius:0; /* エッジの丸みを削除 */
 	box-sizing:border-box;
 	color:var(--emphasis-color);
 	cursor:pointer;
 	display:inline-block;
 	margin:0;
 	outline:none;
-	padding:0.5em 1em;
+	padding:0.5em 1.25em;
 	text-align:center;
-	font-weight:500;
 	user-select:none;
 	vertical-align:top;
-	transition:all 0.15s ease-in-out;
+	font-weight: 500;
+	transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 	-webkit-appearance:button;
 }
 .bst-action-button:hover{
 	background-color:var(--emphasis-color) !important;
 	color:#ffffff !important;
-	border-color:var(--emphasis-color);
+	border-color:var(--emphasis-color) !important;
 }
+
+.bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea){
+	background-color:var(--field-bg-color) !important;
+	border:1px solid var(--field-border-color) !important;
+	outline:none;
+	padding:0.4em 0.5em;
+	width:100%;
+	color:var(--fr-color);
+	transition: border-color 0.15s ease;
+}
+.bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus{
+	border-color:var(--field-focus-color) !important;
+}
+
+/* ==========================================================================
+   3. 表（テーブル）：一般的な縦横罫線＆目立つヘッダー
+   ========================================================================== */
+/* 標準テーブルおよび bst-view 内テーブルの共通修正 */
+.bst-table,
+.bst-view {
+	border-collapse: collapse !important;
+	width: 100%;
+	border: 1px solid var(--border-color) !important;
+	background-color: #ffffff;
+}
+
+/* 重複していた旧レイアウト用の擬似要素下線を無効化 */
+.bst-table :is(td,th):before,
+.bst-view :is(td,th):before,
+.bst-view thead tr:first-of-type :is(td,th):after {
+	display: none !important;
+}
+
+/* 全セルに一般的な格子状（縦横）罫線を付与 */
+.bst-table :is(td,th),
+.bst-view :is(td,th) {
+	border: 1px solid var(--border-color) !important;
+	padding: 0.6em 0.75em !important;
+	vertical-align: middle;
+	background-color: transparent;
+}
+
+/* テーブルタイトル（th・ヘッダー）を印象的なカラーで強調 */
+.bst-table thead th,
+.bst-view thead th,
+.bst-view .bst-view-head .bst-view-head-cell {
+	background-color: var(--th-bg-color) !important;
+	color: var(--th-text-color) !important;
+	font-weight: 600 !important;
+	text-align: left;
+}
+
+.bst-table thead th span,
+.bst-view .bst-view-head .bst-view-head-cell .bst-view-head-caption {
+	color: var(--th-text-color) !important;
+}
+
+/* 行の可読性を高める（ホバー時・ゼブラ柄） */
+.bst-table tbody tr:nth-child(even),
+.bst-view tbody tr:nth-child(even) {
+	background-color: #f8fafc;
+}
+.bst-table tbody tr:hover,
+.bst-view tbody tr:hover {
+	background-color: #f1f5f9;
+}
+
+/* ==========================================================================
+   4. その他のアイコン・レイアウト調整
+   ========================================================================== */
 .bst-action-button.bst-page-detail:not(.bst-mobile){
 	height:40px;
 	line-height:calc(40px - 1em);
@@ -73,7 +168,6 @@
 	margin:0.25em;
 	width:calc(100% - 0.5em);
 }
-
 .bst-action-icon{
 	background-position:center !important;
 	box-sizing:border-box;
@@ -98,13 +192,9 @@
 	margin:0.25em;
 	width:calc(100% - 0.5em) !important;
 }
-
-/* --------------------------------------------------
-   Hints & Cautions
--------------------------------------------------- */
-.bst-caution,
-.bst-hint{
-	background-position:0.25em center;
+.bst-caution{
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5lJREFUeNpiYKAqeLRZ2QGI/+NT8B9K74eJMaFLQoEDjMGIQwEYyPneZWTCJUk0AAgg6vn/PygMsEnsR3ckEza/whQwEvQvvuDFCQACiOZex2k9I7FuBnmQLBtxuYCJlFBCl2NBkhAAUu+JcRWQEgR64wMLkvh7ElwBUssIEEAMgxMQSmL40qYAMk2SZqQAfE+SZqBtDfj4hGyuR0uS9URpBtryHodr3hNjM64AEsCrmVDUoMszUSWecRVS+AyElW4KQOo+CYlPEWjwA5jN90lMufcpTvsAATTyECMFxQQovEER/AAYaYp0sZjYpEhVi/FlFFIsZyTXUmRLcImTVWKT27ogVh0LEQaRWkLALAeXFGT5GGhAAgWlxX2ofpIbQf1AqgCPwROA+CMQ8xNSB/R5IVEWAy09D6QM8HkHV+LCAS4A1RvitRhaBQoQEZSBQPwBqnY9Eeo/AC0XxGoxPdrFpBY0wwcABNAoGgX4itPz0IKGfi0QtM4auDNGqhlMZDr4PqVNTiYyfKuAVqQKQMVo7uP71GhoM5Ho2wRy5Kjh4/lkylHU5pqPXsug1zToaqjl4wQqqSHeYmivgYGaapmILCxIyS4K+AYxSPHxezKy3HuKLMY6PEl8kDtQ4uP9FNQj+8myGNdwD4m+biCnQU+oxdkIpevJaVXiatCD2skBVKq6NwAtDyQ2qAlaiq3kIsUsJkoKC0oKFUY8LQtCwJHElI/SUmGhoLDYT0ahwogR1JQUFuQUKshxLMBAe0APO0YBKgAI0K753iAIA1GcEgeBCcQNYANHgElkA0aQDXAD2QCcQEfxmhwJMfxpy9Eepi/6gS+lv5S0713P/7y8yPbOyMV7hQPQ/CdjFXBU1rbeH1qGLScC5Z3CzLJbYQyvSzmyhpUu/gIY20BUPFUL0NmhgUdXgKoyuip0DoyZ4G1oKKXfj00qlE6A8cjpZmAf8H+Nns8zcU7CXpbu6FgAA2yCsMrpfCX5S+ie5bEEE78uwRqqw3F5AcOk5CVqs9OW0OD4PIDROFQ7b/gVhUEJCWClobhZ8i83neo7OTAaityyHc/H/bvWgNFQpIEbpaYFx5MB6BZDQakI+zW0DIpuK1MU8OzOi1UNitCAlZ/vk2ByPbqoQfJLSQjGzQC6JQGeCO3GMnBaOlotJqjcIpZUsBa0WkwQG0M7V80WEwRBaOeqyWLCUr/8kWGHs7rUWWGq3dOVPtRZ2suLob7GaJgmSaD5NAAAAABJRU5ErkJggg==");
+	background-position:0.25em 0;
 	background-repeat:no-repeat;
 	background-size:1.5em 1.5em;
 	border-bottom:none;
@@ -112,603 +202,19 @@
 	margin:0;
 	padding:0 0 0 2em;
 }
-
-/* --------------------------------------------------
-   Fields & Form Controls
--------------------------------------------------- */
-.bst-dropdown:after{
-	border-bottom:solid 2px var(--fr-color);
-	border-right:solid 2px var(--fr-color);
-	content:'';
-	height:0.35em;
-	margin-top:-0.095em;
-	pointer-events:none;
-	position:absolute;
-	right:0.575em;
-	top:50%;
-	transform:translate(0%,-50%) rotate(45deg);
-	width:0.35em;
-	z-index:2;
-}
-.bst-dropdown select{
-	padding:0 0.5em;
-	padding-right:1.5em !important;
-	z-index:1;
-	border-radius:0;
-	-webkit-appearance:none;
-	-moz-appearance:none;
-	appearance:none;
-}
-.bst-dropdown:is(.bst-hour,.bst-minute){
-	display:inline-block;
-	width:calc(3em + 2px);
-}
-.bst-dropdown.bst-hour{
-	margin-right:0.25em;
-}
-
-.bst-field{
-	display:inline-block;
-	padding:0.25em;
-}
-.bst-field .bst-field-alert{
-	display:none;
-	margin:-0.5em 0 0 0;
-	transition:none;
-}
-.bst-field .bst-field-alert img{
-	display:block;
-	height:0.75em;
-	margin:0 0 0 1.5em;
-	position:relative;
-	width:0.75em;
-}
-.bst-field .bst-field-alert span{
-	background-color:#ef4444;
-	border-radius:0;
-	color:#ffffff;
-	display:block;
-	line-height:2em;
+.bst-hint{
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAFN++nkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAv5JREFUeNpiYKAUMMIYPjOvvAdSAjD+lnQdsBwTkmKYZCNUw390BVgBPgWCKG5ANhYkCXTDB6J8ARBA1PH/fyTxD0C7BZnQJBqRw4GJGD8LErITZNR75PDGCwACiDpeRQtuuBOQ4wU96BkJaIIFTT02Q9CD6j0RroWrYSGgsJ7otAcNYnxJ6gPVogEggIYowpVIUMoGWP4gqBktUzFgiQ3sUYWuEV0xujwTJX5mQjK1gRgNyOqYqBba+AILWzgwEauQqHgmO6rw5KxBlpsAAmg0NzMQmbodgJQDktABYEQeoLrFQIv2o1lECIAc4ki2xQQsvADEG4HYH4gNSHUAEx5L3xPw5UagoQ1Qy3EBB6g5xFkMjUMBKqUjAah5RPk4nsqJmGiLF1LZ4gNEJy4sFSQ5iQtnxcqEp2QWxOZSEsEGbJYO3nxMy5JR5AAM0ioZBIGuBFCAVp6AicQLNLIZ25isB2/8AYXmR1Qj0A8/S24wjt5I4s33IURBq3E3s4AYAn2A944D/
+	background-size:1.5em 1.5em;
+	border-bottom:none;
+	line-height:1.5em !important;
 	margin:0;
-	padding:0 0.5em;
-	position:relative;
-}
-.bst-field .bst-field-caption{
-	display:inline-block;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	user-select:none;
-	white-space:nowrap;
-	width:100%;
-	font-weight:600;
-	color:#374151;
-	margin-bottom:0.25em;
-}
-.bst-field .bst-field-value{
-	z-index:0;
-}
-.bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea){
-	background-color:var(--field-bg-color);
-	border:1px solid var(--field-border-color) !important;
-	border-radius:0;
-	outline:none;
-	padding:0.4em 0.5em;
-	width:100%;
-	color:var(--fr-color);
-	transition:border-color 0.15s ease-in-out;
-}
-.bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus{
-	border-color:var(--field-focus-color) !important;
-	box-shadow:0 0 0 2px rgba(37, 99, 235, 0.2);
-}
-.bst-field .bst-field-value :is(input[type=checkbox],input[type=radio],input[type=file]){
-	display:none;
-}
-.bst-field .bst-field-value :is(input[type=checkbox],input[type=radio])+span{
-	cursor:pointer;
-	display:inline-block;
-	padding:0 0.25em 0 1.5em;
-	user-select:none;
-}
-.bst-field .bst-field-value :is(input[type=checkbox],input[type=radio])+span:after{
-	background-color:var(--field-bg-color);
-	background-position:left center;
-	background-repeat:no-repeat;
-	background-size:1em 1em;
-	border:1px solid var(--field-border-color);
-	border-radius:0;
-	box-sizing:border-box;
-	content:'';
-	cursor:pointer;
-	height:1em;
-	left:0.25em;
-	position:absolute;
-	top:0.25em;
-	width:1em;
-	user-select:none;
-	z-index:2;
-}
-.bst-field .bst-field-value :is(input[type=checkbox],input[type=radio]):checked+span:after{
-	border:none;
-	background-color:var(--emphasis-color);
-}
-.bst-field .bst-field-value textarea{
-	height:100%;
-	min-height:calc(3em + 2px);
-	resize:vertical;
-}
-.bst-field .bst-field-value .bst-guide{
-	display:none;
-	min-height:1.5em;
-	padding:0 0.25em;
-	white-space:normal;
-	width:100%;
-	word-break:break-all;
-}
-.bst-field .bst-field-value .bst-guide .bst-guide-item{
-	display:block;
-	white-space:nowrap;
-}
-.bst-field .bst-field-value .bst-guide .bst-guide-item .bst-guide-item-icon{
-	background-size:1.5em 1.5em;
-	height:1.5em;
-	width:1.5em;
-}
-.bst-field .bst-field-value .bst-guide .bst-guide-item .bst-guide-item-label{
-	display:inline-block;
-	white-space:normal;
-	width:100%;
-}
-.bst-field .bst-field-value .bst-guide .bst-guide-item .bst-guide-item-icon+.bst-guide-item-label{
-	margin-left:0.25em;
-	width:calc(100% - 1.75em);
-}
-.bst-field .bst-field-value .bst-guide.bst-fixed{
-	display:inline-block !important;
-}
-.bst-field .bst-field-value .bst-icon:is(.bst-clear,.bst-open,.bst-search){
-	background-size:1.5em 1.5em;
-	height:1.5em;
-	width:1.5em;
-}
-.bst-field .bst-field-value .bst-unit{
-	display:inline-block;
-	line-height:1.5em;
-	max-width:75%;
-	overflow:hidden;
-	padding:1px 0.25em;
-	text-overflow:ellipsis;
-	user-select:none;
-	white-space:nowrap;
-	width:max-content;
-}
-.bst-field .bst-field-value.bst-force-backcolor,
-.bst-field .bst-field-value.bst-force-backcolor .bst-guide{
-	border-radius:0;
-}
-.bst-field .bst-field-value.bst-force-backcolor .bst-guide *{
-	background-color:inherit !important;
-}
-.bst-field .bst-field-value.bst-force-forecolor .bst-guide *{
-	color:inherit !important;
-}
-.bst-field .bst-field-value:not(.bst-force-backcolor) :is(input:not([type=checkbox]):not([type=radio]),select,textarea){
-	background-color:var(--field-bg-color) !important;
-}
-.bst-field .bst-field-value:is(.bst-assist,.bst-color) input{
-	width:calc(100% - 1.5em) !important;
-}
-.bst-field .bst-field-value:is(.bst-date,.bst-datetime) input{
-	width:calc(6.5em + 2px) !important;
-}
-.bst-field .bst-field-value:is(.bst-checkbox,.bst-radio){
-	white-space:normal;
-	word-break:break-all;
-}
-.bst-field .bst-field-value.bst-file .bst-guide .bst-guide-item .bst-guide-item-label{
-	cursor:pointer;
-}
-.bst-field .bst-field-value:is(.bst-condition,.bst-file,.bst-organization,.bst-group,.bst-user) .bst-guide{
-	width:calc(100% - 1.5em);
-}
-.bst-field .bst-field-value.bst-lookup input{
-	width:calc(100% - 4.5em) !important;
-}
-.bst-field .bst-field-value:is(.bst-id,.bst-number) *{
-	text-align:right;
+	padding:0 0 0 2em;
 }
 
-/* Disabled / Readonly states */
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value .bst-guide{
-	display:inline-block;
-}
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value .bst-guide .bst-guide-item .bst-guide-item-icon{
-	display:none;
-}
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value .bst-guide .bst-guide-item .bst-guide-item-label{
-	margin-left:0;
-	width:100%;
-}
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value:is(.bst-condition,.bst-file,.bst-organization,.bst-group,.bst-user) .bst-guide{
-	width:100%;
-}
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value > :not(.bst-guide,.bst-icon.bst-open){
-	display:none;
-}
-.bst-field:is(.bst-disabled,.bst-readonly) .bst-field-value.bst-dropdown:after{
-	display:none;
-}
-.bst-field:is(.bst-disabled,.bst-readonly).bst-picker .bst-field-value > .bst-icon.bst-open{
-	display:none;
-}
-.bst-field:is(.bst-disabled,.bst-readonly).bst-picker .bst-field-value.bst-file .bst-guide .bst-guide-item .bst-guide-item-label{
-	pointer-events:none;
-}
-.bst-field:is(.bst-disabled,.bst-readonly):not(.bst-picker) .bst-field-value.bst-lookup .bst-guide{
-	width:calc(100% - 1.5em);
-}
-
-/* Filter / Record Builders */
+/* フィルター・レコードビルダー等の背景統一 */
 .bst-filterbuilder,
-.bst-recordbuilder{
-	background-color:var(--main-bg-color) !important;
-	padding:0.5em !important;
-	border:1px solid var(--border-color);
-}
-.bst-filterbuilder .bst-table,
-.bst-recordbuilder .bst-table{
-	margin-bottom:0.25em;
-	width:100%;
-}
-.bst-filterbuilder .bst-table thead,
-.bst-recordbuilder .bst-table thead{
-	display:none;
-}
-.bst-filterbuilder .bst-table tr td:nth-of-type(1),
-.bst-recordbuilder .bst-table tr td:nth-of-type(1){
-	width:12em;
-}
-.bst-filterbuilder .bst-table tr td:nth-of-type(2){
-	width:12em;
-}
-.bst-filterbuilder .bst-table tr td:nth-of-type(3){
-	width:calc(100% - 28em);
-}
-.bst-recordbuilder .bst-table tr td:nth-of-type(2){
-	width:calc(100% - 16em);
-}
-.bst-filterbuilder .bst-table tr td:nth-of-type(4),
-.bst-recordbuilder .bst-table tr td:nth-of-type(3){
-	width:4em;
-}
-.bst-filterbuilder .bst-table tr td .bst-field:not(.bst-filterbuilder-date),
-.bst-recordbuilder .bst-table tr td .bst-field{
-	width:100%;
-}
-.bst-filterbuilder .bst-table-caption{
-	padding:0.5em 0.25em 0 0.25em;
-}
-
-/* --------------------------------------------------
-   General Icons & Utilities
--------------------------------------------------- */
-.bst-flex{
-	display:flex;
-}
-:is(.bst-hidden,.bst-unuse){
-	display:none !important;
-}
-.bst-highlight,
-.bst-highlight *{
-	color:var(--color-highlight) !important;
-}
-.bst-icon{
-	background-color:transparent;
-	background-position:left top;
-	background-repeat:no-repeat;
-	background-size:2em 2em;
-	border:none;
-	cursor:pointer;
-	display:inline-block;
-	height:2em;
-	outline:none;
-	text-align:center;
-	width:2em;
-	-webkit-appearance:button;
-}
-.bst-icon[disabled=disabled]{
-	cursor:not-allowed;
-	opacity:0.25;
-}
-.bst-icon.bst-icon-arrow{
-	background:none;
-}
-.bst-icon.bst-icon-arrow:after{
-	content:'';
-	height:0.35em;
-	left:50%;
-	pointer-events:none;
-	position:absolute;
-	top:50%;
-	transform:translate(-50%,-50%) rotate(45deg);
-	width:0.35em;
-	z-index:2;
-}
-.bst-icon.bst-icon-arrow.bst-icon-arrow-left:after{
-	border-bottom:solid 2px var(--fr-color);
-	border-left:solid 2px var(--fr-color);
-	margin-left:0.095em;
-}
-.bst-icon.bst-icon-arrow.bst-icon-arrow-right:after{
-	border-right:solid 2px var(--fr-color);
-	border-top:solid 2px var(--fr-color);
-	margin-left:-0.095em;
-}
-.bst-icon.bst-icon-arrow.bst-icon-arrow-up:after{
-	border-left:solid 2px var(--fr-color);
-	border-top:solid 2px var(--fr-color);
-	margin-top:0.095em;
-}
-.bst-icon.bst-icon-arrow.bst-icon-arrow-down:after{
-	border-bottom:solid 2px var(--fr-color);
-	border-right:solid 2px var(--fr-color);
-	margin-top:-0.095em;
-}
-
-.bst-inherit-backcolor{
-	box-shadow:none !important;
-}
-.bst-inherit-backcolor *{
-	background-color:transparent !important;
-	box-shadow:inherit !important;
-}
-.bst-inherit-forecolor *{
-	color:inherit !important;
-}
-
-/* --------------------------------------------------
-   Tables (標準的なモダンスタイルへ拡張・改修)
--------------------------------------------------- */
-.bst-table{
-	border-collapse:collapse;
-	table-layout:fixed;
-	width:100%;
-	border:1px solid var(--border-color);
-	background-color:#ffffff;
-}
-.bst-table :is(td,th){
-	border:1px solid var(--border-color);
-	padding:0.6em 0.75em;
-	z-index:0;
-	text-align:left;
-	vertical-align:middle;
-}
-/* 不要な以前の疑似要素枠線を削除 */
-.bst-table :is(td,th):before{
-	display:none;
-}
-.bst-table thead th{
-	background-color:#f3f4f6;
-	color:#111827;
-	font-weight:700;
-	border-bottom:2px solid var(--border-color);
-}
-.bst-table thead th span{
-	display:inline-block;
-	overflow:hidden;
-	padding:0;
-	text-overflow:ellipsis;
-	user-select:none;
-	white-space:nowrap;
-	width:100%;
-}
-.bst-table tbody tr:hover{
-	background-color:#f9fafb;
-}
-
-.bst-table .bst-table-button{
-	width:4em;
-}
-.bst-table .bst-table-button.bst-table-button-extension{
-	width:6em;
-}
-.bst-table .bst-table-button.bst-readonly{
-	display:none;
-}
-.bst-table .bst-table-button .bst-icon{
-	background-position:center center;
-	background-size:1.85em 1.85em;
-}
-.bst-table:is(.bst-disabled,.bst-readonly) .bst-table-button{
-	opacity:0;
-	pointer-events:none;
-}
-.bst-table.bst-mapping .bst-mapping-guide{
-	width:2em;
-}
-.bst-table.bst-mapping .bst-mapping-guide .bst-icon{
-	height:1.5em;
-	width:1.5em;
-}
-.bst-table-caption{
-	display:inline-block;
-	padding:0.5em 0.25em;
-	font-weight:600;
-	color:#111827;
-	user-select:none;
-}
-
-/* --------------------------------------------------
-   Uneditable / Verify
--------------------------------------------------- */
-.bst-uneditable .bst-field .bst-field-value .bst-guide{
-	display:inline-block;
-}
-.bst-uneditable .bst-field .bst-field-value:is(.bst-organization,.bst-file,.bst-group,.bst-user) .bst-guide{
-	width:100%;
-}
-.bst-uneditable .bst-field .bst-field-value:is(.bst-organization,.bst-file,.bst-group,.bst-user) .bst-guide .bst-guide-item .bst-guide-item-icon{
-	display:none;
-}
-.bst-uneditable .bst-field .bst-field-value:is(.bst-organization,.bst-file,.bst-group,.bst-user) .bst-guide .bst-guide-item .bst-guide-item-label{
-	margin-left:0;
-	width:100%;
-}
-.bst-uneditable .bst-field .bst-field-value > :not(.bst-guide,.bst-icon.bst-open){
-	display:none;
-}
-.bst-uneditable .bst-field .bst-field-value.bst-dropdown:after{
-	display:none;
-}
-.bst-uneditable .bst-field .bst-field-value.bst-lookup .bst-guide{
-	width:calc(100% - 1.5em);
-}
-.bst-verify .bst-field{
-	margin-bottom:1em;
-}
-.bst-verify .bst-field .bst-field-caption{
-	border-bottom:2px solid var(--field-focus-color) !important;
-}
-
-/* --------------------------------------------------
-   View / Grid Component
--------------------------------------------------- */
-.bst-view{
-	border-collapse:collapse;
-	table-layout:fixed;
-	width:100%;
-	border:1px solid var(--border-color);
-	background-color:#ffffff;
-}
-.bst-view *{
-	box-sizing:border-box;
-	color:var(--fr-color);
-	font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	line-height:1.5em;
-	margin:0;
-	position:relative;
-	vertical-align:middle;
-	-webkit-overflow-scrolling:touch;
-	-webkit-text-size-adjust:100%;
-}
-.bst-view tbody{
-	z-index:1;
-}
-.bst-view tbody tr:hover td{
-	background-color:#f9fafb;
-}
-.bst-view thead{
-	position:sticky;
-	top:48px;
-	z-index:2;
-}
-.bst-view :is(td,th){
-	background-color:#ffffff;
-	border:1px solid var(--border-color);
-	font-weight:normal;
-	padding:0.6em 0.75em;
-	z-index:0;
-}
-/* 不要な既存線の削除 */
-.bst-view :is(td,th):before,
-.bst-view thead tr:first-of-type :is(td,th):after{
-	display:none;
-}
-
-.bst-view thead tr:first-of-type :is(td,th){
-	background-color:#f3f4f6; /* ヘッダーを目立たせるグレー背景 */
-	color:#111827;
-	font-weight:700;
-	padding-top:0.6em;
-}
-.bst-view .bst-field.bst-hidden:not(.bst-unuse){
-	display:inline-block !important;
-	opacity:0;
-	pointer-events:none;
-}
-.bst-view .bst-table.bst-hidden:not(.bst-unuse){
-	display:inline-block !important;
-	height:0;
-	overflow:hidden;
-}
-.bst-view .bst-table tbody tr:last-of-type :is(td,th){
-	padding-bottom:0.6em !important;
-}
-
-.bst-view .bst-table .bst-table-button{
-	white-space:nowrap;
-}
-.bst-view .bst-view-button{
-	width:8em;
-}
-.bst-view .bst-view-button .bst-icon{
-	background-position:center center;
-	background-size:1.85em 1.85em;
-}
-.bst-view .bst-view-button.bst-view-button_shave1{
-	width:6em;
-}
-.bst-view .bst-view-button.bst-view-button_shave2{
-	width:4em;
-}
-.bst-view .bst-view-button.bst-view-button_shave3{
-	width:2em;
-}
-.bst-view .bst-view-button.bst-view-button_shave4{
-	width:0em;
-}
-.bst-view .bst-view-button.bst-view-button-tables{
-	width:6em;
-}
-.bst-view .bst-view-guide{
-	padding-left:7px !important;
-}
-.bst-view .bst-view-guide.bst-view-button{
-	width:calc(8em + 7px) !important;
-}
-.bst-view .bst-view-guide.bst-view-button.bst-view-button_shave1{
-	width:calc(6em + 7px) !important;
-}
-.bst-view .bst-view-guide.bst-view-button.bst-view-button_shave2{
-	width:calc(4em + 7px) !important;
-}
-.bst-view .bst-view-guide.bst-view-button.bst-view-button_shave3{
-	width:calc(2em + 7px) !important;
-}
-.bst-view .bst-view-guide.bst-view-button.bst-view-button_shave4{
-	width:7px !important;
-}
-.bst-view .bst-view-head .bst-view-head-cell{
-	padding:0;
-}
-.bst-view .bst-view-head .bst-view-head-cell .bst-view-head-caption{
-	display:inline-block;
-	overflow:hidden;
-	padding:0;
-	text-overflow:ellipsis;
-	user-select:none;
-	white-space:nowrap;
-	width:100%;
-	z-index:1;
-	font-weight:700;
-}
-.bst-view .bst-view-head .bst-view-head-cell .bst-view-head-resizer{
-	background-color:transparent;
-	background-position:left center;
-	background-repeat:no-repeat;
-	background-size:100% auto;
-	cursor:col-resize;
-	display:block;
-	height:100%;
-	position:absolute;
-	right:-0.375em;
-	top:0;
-	width:0.75em;
-	z-index:2;
-}
-.bst-view .bst-view-head .bst-view-head-cell.bst-view-head-cell-fix .bst-view-head-resizer{
-	cursor:not-allowed;
-}
-.bst-view .bst-view-head .bst-view-head-cell.bst-view-head-cell-fix-anchor .bst-view-head-caption{
-	padding-left:2.25em;
+.bst-recordbuilder {
+	background-color: var(--main-bg-color) !important;
+	padding: 0.5em !important;
+	border: 1px solid var(--border-color);
 }
