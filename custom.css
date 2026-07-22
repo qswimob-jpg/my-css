@@ -45,7 +45,7 @@
 
 /* 修正: リンク文字色を鮮明な青色に統一 */
 a {
-	color: #2563eb;
+	color: #2563eb !important;
 	text-decoration: underline;
 }
 
