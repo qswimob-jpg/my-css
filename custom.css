@@ -1,22 +1,22 @@
 @charset "utf-8";
 /*
 * FileName "ui.css"
-* Version: 1.2.0 - Modern & Clean Custom Edition (Sharp & Compact)
+* Version: 1.3.0 - Modern & Clean Custom Edition (Black Border & Compact)
 * Copyright (c) 2023 Pandafirm LLC
 * Distributed under the terms of the GNU Lesser General Public License.
 * https://opensource.org/licenses/LGPL-2.1
 */
 
 :root{
-	/* --- カラーパレット：清潔感のある配色 --- */
+	/* --- カラーパレット --- */
 	--emphasis-color: #2563eb;          /* メインアクセント */
 	--bg-color: #ffffff;                /* 基本背景（完全な白） */
 	--fr-color: #1e293b;                /* 基本文字色 */
 	--color-highlight: #ef4444;         
 	--placeholder-color: #94a3b8;      
-	--border-color: #94a3b8;           /* テーブル・枠線（はっきり目立つ濃いめグレー） */
-	--field-bg-color: #ffffff;         /* 入力・値背景（完全な白） */
-	--field-border-color: #cbd5e1;    
+	--border-color: #000000;           /* 罫線色（完全な黒） */
+	--field-bg-color: #ffffff;         /* 入力・値背景 */
+	--field-border-color: #000000;    
 	--field-focus-color: #2563eb;     
 	--main-bg-color: #ffffff;          
 	--main-fr-color: #1e293b;
@@ -27,7 +27,7 @@
 	--injector-fr-color: #1e293b;
 	--injector-placeholder-color: #94a3b8;
 	--injector-field-bg-color: #ffffff;
-	--injector-field-border-color: #cbd5e1;
+	--injector-field-border-color: #000000;
 	--injector-field-focus-color: #2563eb;
 	--echo-bg-color: #ffffff;
 	--echo-fr-color: #1e293b;
@@ -36,6 +36,9 @@
 	/* --- テーブルヘッダー用カラー --- */
 	--th-bg-color: #1e40af;            /* テーブル見出し背景 */
 	--th-text-color: #ffffff;          /* テーブル見出し文字色 */
+	
+	/* --- リンクカラー --- */
+	--link-color: #0000ee;             /* リンクの青色 */
 }
 
 /* 共通フォント設定 */
@@ -44,7 +47,7 @@ body, .bst-view, input, select, textarea, button {
 }
 
 /* ==========================================================================
-   1. パーツ・外枠のエッジ完全フラット化（角丸をゼロに）
+   1. パーツ・表外枠の角丸（エッジ）完全解除
    ========================================================================== */
 *,
 *::before,
@@ -54,6 +57,10 @@ table,
 .bst-view,
 .bst-view-body,
 .bst-view-head,
+.bst-view-head-cell,
+.bst-view-head-cell:last-child,
+.bst-table th:first-child,
+.bst-table th:last-child,
 .bst-action-button,
 .bst-field,
 .bst-field .bst-field-alert span,
@@ -62,10 +69,17 @@ table,
 .bst-field .bst-field-value.bst-force-backcolor,
 .bst-field .bst-field-value.bst-force-backcolor .bst-guide {
 	border-radius: 0 !important;
+	clip-path: none !important;
+}
+
+/* 角丸用の overflow 切り抜きを解除 */
+.bst-view,
+.bst-table {
+	overflow: visible !important;
 }
 
 /* ==========================================================================
-   2. 薄っすらグレーの背景を完全な白色に変更
+   2. 薄っすらグレーの背景を完全な白色に変更 ＆ リンク青色化
    ========================================================================== */
 .bst-view,
 .bst-field,
@@ -78,19 +92,32 @@ table,
 	background-color: #ffffff !important;
 }
 
+/* リンクを青色で表示 */
+a,
+.bst-view a,
+.bst-table a {
+	color: var(--link-color) !important;
+	text-decoration: underline;
+}
+a:hover,
+.bst-view a:hover,
+.bst-table a:hover {
+	color: #0000aa !important;
+}
+
 /* ==========================================================================
    3. ボタン・入力フィールド
    ========================================================================== */
 .bst-action-button{
 	background-color:#ffffff;
-	border:1px solid #cbd5e1;
+	border:1px solid #000000;
 	box-sizing:border-box;
 	color:var(--emphasis-color);
 	cursor:pointer;
 	display:inline-block;
 	margin:0;
 	outline:none;
-	padding:0.4em 1em;
+	padding:0.3em 0.8em;
 	text-align:center;
 	user-select:none;
 	vertical-align:top;
@@ -106,18 +133,15 @@ table,
 
 .bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea){
 	background-color:#ffffff !important;
-	border:1px solid var(--field-border-color) !important;
+	border:1px solid #000000 !important;
 	outline:none;
-	padding:0.3em 0.5em;
+	padding:0.25em 0.4em;
 	width:100%;
 	color:var(--fr-color);
 }
-.bst-field .bst-field-value :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus{
-	border-color:var(--field-focus-color) !important;
-}
 
 /* ==========================================================================
-   4. 表（テーブル）：行間詰め・くっきり罫線・ヘッダー「…」の削除
+   4. 表（テーブル）：黒色の罫線・文字を少し小さく・行間短縮・ヘッダー「…」消去
    ========================================================================== */
 /* テーブル本体構造 */
 table,
@@ -125,7 +149,7 @@ table,
 .bst-view {
 	border-collapse: collapse !important;
 	width: 100%;
-	border: 1.5px solid var(--border-color) !important; /* 外枠を少し太めにしてくっきり強調 */
+	border: 1px solid #000000 !important; /* 外枠を黒色に */
 	background-color: #ffffff !important;
 }
 
@@ -136,15 +160,16 @@ table,
 	display: none !important;
 }
 
-/* 全セルの共通スタイル（行間隔を短縮 ＋ 目立つ縦横罫線） */
+/* 全セルの共通スタイル（黒罫線・文字小さめ・行間かなり小さめ） */
 .bst-table :is(td,th),
 .bst-view :is(td,th),
 .bst-view .bst-view-head .bst-view-head-cell,
 .bst-view .bst-view-body .bst-view-row > div {
-	border: 1px solid var(--border-color) !important; /* 格子状のくっきり罫線 */
-	padding: 0.35em 0.5em !important;                 /* 行間をさらにギュッと詰める */
+	border: 1px solid #000000 !important; /* 黒色の縦横罫線 */
+	padding: 0.25em 0.5em !important;      /* 上下余白をしっかり詰めて行間を縮小 */
 	vertical-align: middle;
-	font-size: 0.92em;
+	font-size: 0.85em !important;          /* 文字サイズを少し小さく変更 */
+	line-height: 1.3 !important;
 }
 
 /* ヘッダー（表タイトル行） */
@@ -162,7 +187,7 @@ table,
 	color: var(--th-text-color) !important;
 }
 
-/* ★ 表タイトルの「...」（縦三点リーダー・メニューボタン）を削除 ★ */
+/* 表タイトルの「...」（縦三点リーダー・メニューボタン）の完全無効化 */
 .bst-view-head-cell-menu,
 .bst-view-head-cell button,
 .bst-view .bst-view-head .bst-view-head-cell::after,
@@ -171,7 +196,7 @@ table,
 	content: none !important;
 }
 
-/* 行の可読性向上（薄いシマシマ＆ホバー時強調） */
+/* 行のホバー＆交互背景 */
 .bst-table tbody tr:nth-child(even),
 .bst-view tbody tr:nth-child(even),
 .bst-view .bst-view-body .bst-view-row:nth-child(even) {
@@ -180,20 +205,20 @@ table,
 .bst-table tbody tr:hover,
 .bst-view tbody tr:hover,
 .bst-view .bst-view-body .bst-view-row:hover {
-	background-color: #e2e8f0 !important;
+	background-color: #f1f5f9 !important;
 }
 
 /* ==========================================================================
    5. その他のレイアウト調整
    ========================================================================== */
 .bst-action-button.bst-page-detail:not(.bst-mobile){
-	height:36px;
-	line-height:calc(36px - 0.8em);
+	height:32px;
+	line-height:calc(32px - 0.8em);
 	margin:0.5em 0.25em 0 0;
 }
 .bst-action-button.bst-page-index:not(.bst-mobile){
-	height:40px;
-	line-height:calc(40px - 0.8em);
+	height:36px;
+	line-height:calc(36px - 0.8em);
 	margin:0 8px 0 0;
 }
 
