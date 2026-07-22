@@ -719,6 +719,16 @@ a {
 .bst-view thead tr:first-of-type :is(td,th):after{
 	display: none !important;
 	}
+	
+/* 修正: ビューヘッダータイトルの背景色を青、文字色を白に指定 */
+.bst-view .bst-view-head .bst-view-head-cell{
+	background-color: #1d4ed8 !important;
+	color: #ffffff !important;
+	padding: 0em 0em;
+}
+.bst-view .bst-view-head .bst-view-head-cell * {
+	color: #ffffff !important;
+}	
 .bst-view .bst-view-head .bst-view-head-cell .bst-view-head-caption{
 	color: #ffffff !important;
 	display: inline-block;
