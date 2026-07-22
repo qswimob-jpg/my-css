@@ -45,7 +45,7 @@
 
 /* 修正: リンク文字色を鮮明な青色に統一 */
 a {
-	color: #2563eb !important!;
+	color: #2563eb !important;
 	text-decoration: underline;
 }
 
@@ -1395,7 +1395,7 @@ html *{
 	font-size:12px;
 	line-height:1.5em;
 	margin:0;
-	padding-left:8px !important;
+	padding:0.5em !important;
 	position:relative;
 	vertical-align:top;
 	-webkit-overflow-scrolling:touch;
