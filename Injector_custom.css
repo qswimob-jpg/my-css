@@ -1,0 +1,12 @@
+/* 親要素をFlexboxにして横並び＋中央揃えにする */
+.bst-field-value.bst-number {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 入力欄と「名」の間の余白（お好みで調整） */
+}
+
+/* 入力欄の100%幅指定を上書きし、残りの幅に自動調整させる */
+.bst-field-value.bst-number input[type="text"] {
+    flex: 1;
+    width: auto !important; /* 既存のstyle="width: calc(...)"を無効化 */
+}
