@@ -1391,7 +1391,7 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask{
 }
 
 html *{
-	background-color:.rgba(245,251,222,1) !important:
+	background-color:rgba(245,251,222,1) !important:
 	box-sizing:border-box;
 	font-family:system-ui,sans-serif;
 	font-size:12px;
