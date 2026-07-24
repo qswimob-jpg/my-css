@@ -868,7 +868,7 @@ body .bst-injector{
 body .bst-injector *{
 	color:var(--injector-fr-color);
 /* 文字サイズ　*/
-	font-size:18px;
+	font-size:15px;
 }
 body .bst-injector ::-webkit-input-placeholder{
 	color:var(--injector-placeholder-color);
@@ -908,7 +908,7 @@ body .bst-injector .bst-injector-main .bst-injector-body{
 }
 body .bst-injector .bst-injector-main .bst-injector-body .bst-field{
 	display:block;
-	padding-bottom:1em;
+	padding-bottom:0em;
 	width:100% !important;
 }
 body .bst-injector .bst-injector-main .bst-injector-body .bst-field .bst-field-value.bst-lookup input{
@@ -1324,8 +1324,3 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask{
 	height:calc(100% - 1.5em);
 	z-index:2;
 }
-
-html *{
-/* 行間　*/
-	line-height:1.3em;
-	}
