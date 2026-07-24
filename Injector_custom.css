@@ -200,6 +200,7 @@
 	user-select:none;
 	white-space:nowrap;
 	width:100%;
+	font-weight: bold;
 }
 .bst-field .bst-field-value{
 	z-index:0;
