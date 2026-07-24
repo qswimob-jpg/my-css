@@ -867,7 +867,8 @@ body .bst-injector{
 }
 body .bst-injector *{
 	color:var(--injector-fr-color);
-	font-size:21px;
+/* 文字サイズ　*/
+	font-size:18px;
 }
 body .bst-injector ::-webkit-input-placeholder{
 	color:var(--injector-placeholder-color);
@@ -1325,14 +1326,6 @@ body.pop .bst-echo .bst-echo-main .bst-echo-mask{
 }
 
 html *{
-	box-sizing:border-box;
-	font-family:system-ui,sans-serif;
-	font-size:12px;
-	line-height:1.5em;
-	margin:0;
-	padding-left:2px !important;
-	position:relative;
-	vertical-align:top;
-	-webkit-overflow-scrolling:touch;
-	-webkit-text-size-adjust:100%;
+/* 行間　*/
+	line-height:1.3em;
 	}
